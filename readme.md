@@ -7,7 +7,7 @@
 
 
 
-## 1. User Stories 📝
+## User Stories 📝
 
 1. **Teacher Admin**: “I want to add word pairs by week using a simple input interface before students play, then lock access so no further edits are possible during gameplay.” 🔒
 2. **Student Player**: “I want to pick a week and practice the flashcards to learn English!” 🌟
@@ -15,9 +15,21 @@
 
 *These stories form our **scope** and define the features (MVP—Minimum Viable Product).*
 
+## Architecture Diagram 📊
 
+```mermaid
+flowchart TD
+  Sponsor["👩‍🏫 Sponsor/Teacher"] --> ScratchApp["🖥️ Scratch App"]
+  ScratchApp --> DataStore["📦 Data Store\n(lists + vars)"]
+  ScratchApp --> Control["⚙️ Control Logic\n(Load, Flip)"]
+  ScratchApp --> UI["🎨 UI Modules\n(Week, Card, Next)"]
+  Students["👩‍🎓 Students"] --> ScratchApp
+```
+* **Data Store:** Maintains all lists and variables.
+* **Control Logic:** Implements user stories via broadcast messages and handlers.
+* **UI Sprites:** Separate sprites handle user input (buttons) and output (card display, audio).
 
-## 2. Data Model  🗂️
+## Data Model  🗂️
 Define the core data structures that represent the application’s state:
 
 | Entity         | Type             | Description                                             |
@@ -36,7 +48,7 @@ A well-defined data model serves as a blueprint; changing variable names or list
 
 
 
-## 3. Mapping User Stories → Modules 🚀
+## Mapping User Stories → Modules 🚀
 
 | User Story                 | Module/Sprite          | Functionality                                                                                    |
 | -------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------ |
@@ -50,74 +62,40 @@ Assigning each user story to a distinct module increases **separation of concern
 
 
 
-## 4. Architecture Diagram 📊
 
-```mermaid
-flowchart TD
-  Sponsor["👩‍🏫 Sponsor/Teacher"] --> ScratchApp["🖥️ Scratch App"]
-  ScratchApp --> DataStore["📦 Data Store\n(lists + vars)"]
-  ScratchApp --> Control["⚙️ Control Logic\n(Load, Flip)"]
-  ScratchApp --> UI["🎨 UI Modules\n(Week, Card, Next)"]
-  Students["👩‍🎓 Students"] --> ScratchApp
-```
-* **Data Store:** Maintains all lists and variables.
-* **Control Logic:** Implements user stories via broadcast messages and handlers.
-* **UI Sprites:** Separate sprites handle user input (buttons) and output (card display, audio).
-
-
-
-
-## 5. Implementation Steps in Scratch 🛠️
+## Implementation Steps in Scratch 🛠️
 
 1. **Set up Data** (like defining your DB tables):
-
    * Create lists: `EnglishWeek1…EnglishWeekN`, `SwedishWeek1…SwedishWeekN`
    * Create variables: `CurrentWeek`, `CardIndex`, `FrontSide`, `BackSide`, `IsLocked`
-2. **Admin Mode**:
-
+1.  **Admin Mode**:
    * In Admin sprite: on green-flag → `set IsLocked to 0`.
    * If `IsLocked=0`, `ask [Week?]`, `ask [English?]`, `ask [Swedish?]`, add answers to correct lists.
-3. **Lock Admin**:
-
+1. **Lock Admin**:
    * Teacher clicks a custom button or script to `set IsLocked to 1`.
-4. **Week Buttons**:
-
+1. **Week Buttons**:
    * Each WeekX button: on click → `set CurrentWeek to X` → broadcast `LoadCard`.
-5. **Card Sprite**:
-
+1. **Card Sprite**:
    * On `LoadCard`:
-
      * `set CardIndex to pick random 1 to length of EnglishWeek(CurrentWeek)`
      * `set FrontSide to item CardIndex of EnglishWeek(CurrentWeek)`
      * `set BackSide to item CardIndex of SwedishWeek(CurrentWeek)`
      * `say FrontSide`
    * On click:
-
      * `play sound [FrontSide_EN]`; `say BackSide`; `play sound [BackSide_SE]`
-6. **Next Button**:
-
+1. **Next Button**:
    * On click → broadcast `LoadCard`
-7. **Test & Iterate**:
-
+1. **Test & Iterate**:
    * Run each module (Admin, Load, Flip) separately; fix bugs; refine UI positions.
 
 
 
-## 6. Engineering Hints & Self-Learning Tips 🔍
 
-* **Scratch & Community**: Check Scratch’s built-in docs (Help → About Blocks) or the Scratch Wiki.
-* **YouTube & Google**: Search "Scratch flashcard tutorial" or "Scratch get random item" for example projects.
-* **Rubber Duck Debugging**: Explain your script to a buddy or even a stuffed toy! Bugs often vanish when you talk through them.
-* **Refactor Early**: If your code feels messy, pause and reorganize sprites or variable names—clean code is happy code!
-* **Separation of Concerns:** Keep data-loading logic separate from UI logic. Changes in one module should not break another.
-* **Consistent Naming:** Use descriptive names (e.g., `EnglishWeek1` rather than `EW1`) to avoid confusion when referencing lists in scripts.
-* **Modularity:** Encapsulate each feature (admin, week select, card display) in its own sprite to support independent testing and future extension.
-* **Error Handling:** Consider adding feedback (e.g., `say "No cards available"`) if a list is empty or `IsLocked = true` when trying to add cards.
 
  
 
 
-## 7. Three‑Week Plan ⏱️
+## Three‑Week Plan ⏱️
 
 You can complete this project in **three weeks**, spending **a few hours** each week. After each week’s work, your sponsor (teacher or mentor) will test your game to make sure everything works and give you feedback.
 | Week | Activities |
@@ -130,9 +108,18 @@ You can complete this project in **three weeks**, spending **a few hours** eac
 
 
 
+# Engineering Hints & Self-Learning Tips 🔍
 
+* **Scratch & Community**: Check Scratch’s built-in docs (Help → About Blocks) or the Scratch Wiki.
+* **YouTube & Google**: Search "Scratch flashcard tutorial" or "Scratch get random item" for example projects.
+* **Rubber Duck Debugging**: Explain your script to a buddy or even a stuffed toy! Bugs often vanish when you talk through them.
+* **Refactor Early**: If your code feels messy, pause and reorganize sprites or variable names—clean code is happy code!
+* **Separation of Concerns:** Keep data-loading logic separate from UI logic. Changes in one module should not break another.
+* **Consistent Naming:** Use descriptive names (e.g., `EnglishWeek1` rather than `EW1`) to avoid confusion when referencing lists in scripts.
+* **Modularity:** Encapsulate each feature (admin, week select, card display) in its own sprite to support independent testing and future extension.
+* **Error Handling:** Consider adding feedback (e.g., `say "No cards available"`) if a list is empty or `IsLocked = true` when trying to add cards.
 
-## 8. Glossary of Cool SW Terms 🚀
+#  Glossary of Cool SW Terms 🚀
 
 * **MVP (Minimum Viable Product)**: The simplest version of your game that works.
 * **Sprint**: A short, time-boxed development cycle.
