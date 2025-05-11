@@ -14,6 +14,24 @@ Checkout also: https://en.wikipedia.org/wiki/List_of_flashcard_software
 3. **Student Player**: “I want to hear both English and Swedish pronunciations of each word to improve speaking and listening skills.” 🔊
 
 *These stories form our **scope** and define the features (MVP—Minimum Viable Product).*
+
+## Collaboration & Project Sharing 🔗
+
+To involve both your teacher (administrator) and a student developer in maintaining the game, follow this simple remix workflow:
+
+1. **Teacher publishes the base project**  
+   - On scratch.mit.edu, the teacher clicks **Share** so everyone can play but not edit.
+1. **Student developer remixes to create an editable copy**  
+   - The student logs into their own Scratch account, visits the teacher’s project page, and clicks **Remix**.  
+   - This creates a new project under the student’s account where they can **See Inside** and update scripts.
+1. **Review and merge updates**  
+   - Once the student developer has added the new words and refined features, the teacher goes to the student’s remixed project and clicks **See Inside**.  
+   - The teacher copies any updated blocks or sprites (via right-click → Copy) and pastes them into the original project (right-click → Paste), or uses the Backpack to transfer code between projects.
+1. **Finalize and lock for play**  
+   - After merging, the teacher tests the original project, then uses the in-game **Lock** mechanism (`set IsLocked to true`) to prevent further edits during student gameplay.
+
+> **Note:** Scratch does not support simultaneous multi-user editing in one project. This remix-and-merge pattern ensures safe collaboration and maintains a single “master” project for students to play.  
+
 ## Three‑Week Plan ⏱️
 
 You can complete this project in **three weeks**, spending **a few hours** each week. After each week’s work, your sponsor (teacher or mentor) will test your game to make sure everything works and give you feedback.
