@@ -14,6 +14,16 @@
 3. **Student Player**: “I want to add word pairs by week using a simple input interface before students play, then lock access so no further edits are possible during gameplay.” 🔊
 
 *These stories form our **scope** and define the features (MVP—Minimum Viable Product).*
+## Three‑Week Plan ⏱️
+
+You can complete this project in **three weeks**, spending **a few hours** each week. After each week’s work, your sponsor (teacher or mentor) will test your game to make sure everything works and give you feedback.
+| Week | Activities |
+| ---- | --------------------------------------------------------------------------------------------- |
+| 1    | Set up lists & variables; Build the Admin input interface and add a few sample words; Sponsor tests data entry and lock feature |
+| 2    | Create buttons to select weeks; Implement loading a card and flipping from front to back; Add pronunciation sounds; Sponsor checks game flow |
+| 3    | Add the “Next” button to advance cards; Finalize the lock mechanism so no more edits can occur during play; Polish the user interface layout; Sponsor conducts final playtest and approval |
+
+*At the end of each week, a quick demo to your sponsor helps catch issues early and makes your game stronger!*
 
 ## Architecture Diagram 📊
 
@@ -89,22 +99,6 @@ Assigning each user story to a distinct module increases **separation of concern
    * Run each module (Admin, Load, Flip) separately; fix bugs; refine UI positions.
 
 
-
-
-
- 
-
-
-## Three‑Week Plan ⏱️
-
-You can complete this project in **three weeks**, spending **a few hours** each week. After each week’s work, your sponsor (teacher or mentor) will test your game to make sure everything works and give you feedback.
-| Week | Activities |
-| ---- | --------------------------------------------------------------------------------------------- |
-| 1    | Set up lists & variables; Build the Admin input interface and add a few sample words; Sponsor tests data entry and lock feature |
-| 2    | Create buttons to select weeks; Implement loading a card and flipping from front to back; Add pronunciation sounds; Sponsor checks game flow |
-| 3    | Add the “Next” button to advance cards; Finalize the lock mechanism so no more edits can occur during play; Polish the user interface layout; Sponsor conducts final playtest and approval |
-
-*At the end of each week, a quick demo to your sponsor helps catch issues early and makes your game stronger!*
 
 
 
