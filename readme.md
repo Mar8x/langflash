@@ -78,7 +78,7 @@ Assigning each user story to a distinct module increases **separation of concern
 1. **Set up Data** (like defining your DB tables):
    * Create lists: `EnglishWeek1…EnglishWeekN`, `SwedishWeek1…SwedishWeekN`
    * Create variables: `CurrentWeek`, `CardIndex`, `FrontSide`, `BackSide`, `IsLocked`
-1.  **Admin Mode**:
+1. **Admin Mode**:
    * In Admin sprite: on green-flag → `set IsLocked to 0`.
    * If `IsLocked=0`, `ask [Week?]`, `ask [English?]`, `ask [Swedish?]`, add answers to correct lists.
 1. **Lock Admin**:
