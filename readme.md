@@ -5,13 +5,13 @@
 
 **Prerequisites:** Basic familiarity with Scratch—knowing how to create sprites, lists, variables, and use broadcast messages and event handlers.
 
-
+Checkout also: https://en.wikipedia.org/wiki/List_of_flashcard_software
 
 ## User Stories 📝
 
 1. **Teacher Admin**: “I want to add word pairs by week using a simple input interface before students play, then lock access so no further edits are possible during gameplay.” 🔒
 2. **Student Player**: “I want to pick a week and practice the flashcards to learn English!” 🌟
-3. **Student Player**: “I want to add word pairs by week using a simple input interface before students play, then lock access so no further edits are possible during gameplay.” 🔊
+3. **Student Player**: “I want to hear both English and Swedish pronunciations of each word to improve speaking and listening skills.” 🔊
 
 *These stories form our **scope** and define the features (MVP—Minimum Viable Product).*
 ## Three‑Week Plan ⏱️
