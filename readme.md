@@ -102,7 +102,26 @@ Assigning each user story to a distinct module increases **separation of concern
 1. **Test & Iterate**:
    * Run each module (Admin, Load, Flip) separately; fix bugs; refine UI positions.
 
+# Admin & Student Roles in Scratch Projects
+Due to the way Scratch is built, projects are owned by individual user accounts, and there is no built-in feature for collaborative editing or role-based access control. This means that managing roles such as “teacher” (admin) and “student” requires a structured workflow.
 
+## Project Ownership and Roles
+- Student Developer: Holds the Scratch account that owns the project. Responsible for implementing features, updating content, and managing the project’s development.
+- Teacher (Admin): Acts as the end-user who provides weekly word lists and feedback. While the teacher does not directly edit the project, they play a crucial role in guiding its content and functionality.
+
+## Workflow for Updating Weekly Word Lists
+  1. Teacher
+     - Provides Word Lists: Each week, the teacher compiles a list of new vocabulary words to be added to the flashcard game.
+  1. Student Developer Updates the Project:
+     - Accesses the project using their Scratch account.
+	   - Utilizes the Admin UI within the project to input the new word pairs.
+	   - Ensures that the IsLocked variable is set to 0 to allow editing.
+
+**Locking the Admin Interface**
+  - After updating, the student sets IsLocked to 1 to prevent further edits during gameplay. This ensures that students using the flashcard game cannot modify the content.
+  - Teacher Reviews the Updates:
+  - The teacher plays the updated game to verify that the new words have been correctly added.
+	- Provides feedback to the student developer for any necessary adjustments.
 
 
 
